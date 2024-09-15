@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Images | Voyager</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="images/Logos/logo.ico" type="image">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link rel="stylesheet" href="css/Recommendations.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500|Raleway:500" rel="stylesheet">
+</head>
+
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload and Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        #uploadButton {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #uploadButton:hover {
+            background-color: #0056b3;
+        }
+
+        #imageContainer {
+            margin-top: 20px;
+        }
+
+        #uploadedImage {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #ddd;
+            padding: 5px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="uploadButton">Click to Upload Image</button>
+        <input type="file" id="fileInput" accept="image/*" style="display: none;">
+        <div id="imageContainer">
+            <img id="uploadedImage" src="" alt="Selected Image" style="display: none;">
+            <p id="displayText" style="display: none;">The Taj Mahal, located in Agra, India, is one of the most iconic and beautiful structures in the world. Built by the Mughal Emperor Shah Jahan in memory of his beloved wife Mumtaz Mahal, the Taj Mahal is a symbol of eternal love and an architectural marvel of the Mughal era. Construction of the mausoleum began in 1632 and took about 22 years to complete, involving thousands of artisans and craftsmen.
+
+                The structure is made primarily of white marble, which changes color with the light of day, adding to its ethereal beauty. Its main features include a massive white dome, four minarets, and intricate carvings inlaid with precious stones. The surrounding gardens, fountains, and reflecting pools enhance the serene atmosphere of the monument.</p>
+        </div>
+    </div>
+    <script>
+        document.getElementById('uploadButton').addEventListener('click', function() {
+            document.getElementById('fileInput').click();
+        });
+
+        document.getElementById('fileInput').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    const uploadedImage = document.getElementById('uploadedImage');
+                    const displayText = document.getElementById('displayText');
+
+                    uploadedImage.src = e.target.result;
+                    uploadedImage.style.display = 'block';
+                    displayText.style.display = 'block';
+                };
+
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+</body>
+
+</html>
